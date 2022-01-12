@@ -1,7 +1,6 @@
 package com.spaceflightnews.controller;
 
 import com.spaceflightnews.dto.NewsDTO;
-import com.spaceflightnews.mapper.DTOMapper;
 import com.spaceflightnews.service.NewsService;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +22,7 @@ public class NewsController {
         return "Back-end Challenge 2021 \uD83C\uDFC5 - Space Flight News";
     }
 
-    @GetMapping("/articles")
+    @GetMapping("/articles/")
     public List<NewsDTO> listNews() {
         return newsService.listAll();
     }
@@ -31,5 +30,11 @@ public class NewsController {
     @GetMapping("/articles/{id}")
     public NewsDTO getNewsById(@PathVariable int id) {
         return newsService.getById(id);
+    }
+
+    @PostMapping("/articles/")
+    @ResponseStatus(HttpStatus.CREATED)
+    public void createNews(@RequestBody NewsDTO newsDTO) {
+        newsService.createNews(newsDTO);
     }
 }
