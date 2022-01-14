@@ -4,7 +4,9 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -46,9 +48,9 @@ public class News {
 
     @OneToMany(mappedBy = "news")
     @JsonManagedReference
-    private Set<Launches> launches = new HashSet<>();
+    private List<Launches> launches = new ArrayList<>();
 
     @OneToMany(mappedBy = "news")
     @JsonManagedReference
-    private Set<Events> events = new HashSet<>();
+    private List<Events> events = new ArrayList<>();
 }

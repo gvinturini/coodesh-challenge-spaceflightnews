@@ -1,17 +1,15 @@
-package com.spaceflightnews.dto;
+package com.spaceflightnews.dto.request;
 
 import com.spaceflightnews.entity.Events;
 import com.spaceflightnews.entity.Launches;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.util.Set;
+import java.util.List;
 
-@Data
+@Getter
+@Setter
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
@@ -50,7 +48,7 @@ public class NewsDTO {
     @NotNull
     private boolean featured;
 
-    private Set<Launches> launches;
+    private List<Launches> launches;
 
-    private Set<Events> events;
+    private List<Events> events;
 }

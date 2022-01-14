@@ -1,6 +1,7 @@
 package com.spaceflightnews.controller;
 
-import com.spaceflightnews.dto.NewsDTO;
+import com.spaceflightnews.dto.request.NewsDTO;
+import com.spaceflightnews.dto.response.MessageResponseDTO;
 import com.spaceflightnews.service.NewsService;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,7 +35,18 @@ public class NewsController {
 
     @PostMapping("/articles/")
     @ResponseStatus(HttpStatus.CREATED)
-    public void createNews(@RequestBody NewsDTO newsDTO) {
-        newsService.createNews(newsDTO);
+    public MessageResponseDTO createNews(@RequestBody NewsDTO newsDTO) {
+        return newsService.createNews(newsDTO);
+    }
+
+    @DeleteMapping("/articles/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deleteNews(@PathVariable int id) {
+        newsService.delete(id);
+    }
+
+    @PutMapping("/articles/{id}")
+    public MessageResponseDTO updateById(@PathVariable int id, @RequestBody NewsDTO newsDTO) {
+        return newsService.updateById(id, newsDTO);
     }
 }

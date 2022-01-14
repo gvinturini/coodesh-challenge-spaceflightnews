@@ -1,16 +1,13 @@
 package com.spaceflightnews.mapper;
 
-import com.spaceflightnews.dto.EventsDTO;
-import com.spaceflightnews.dto.LaunchesDTO;
-import com.spaceflightnews.dto.NewsDTO;
+import com.spaceflightnews.dto.request.EventsDTO;
+import com.spaceflightnews.dto.request.LaunchesDTO;
+import com.spaceflightnews.dto.request.NewsDTO;
 import com.spaceflightnews.entity.Events;
 import com.spaceflightnews.entity.Launches;
 import com.spaceflightnews.entity.News;
 import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
-
-import java.util.Set;
 
 @Mapper
 public interface DTOMapper {

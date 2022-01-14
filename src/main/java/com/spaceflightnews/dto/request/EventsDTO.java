@@ -1,12 +1,10 @@
-package com.spaceflightnews.dto;
+package com.spaceflightnews.dto.request;
 
 import com.spaceflightnews.entity.News;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
-@Data
+@Getter
+@Setter
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
